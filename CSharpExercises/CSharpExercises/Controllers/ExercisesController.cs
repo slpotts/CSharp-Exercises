@@ -9,44 +9,101 @@ namespace CSharpExercises.Controllers
 {
     public class ExercisesController : Controller
     {
+
+        [HttpGet]
+        public ActionResult Max()
+        {
+            return View();
+        }
+
+
+        public ActionResult Max(string numbers)
+        {
+            var mathinator = new Mathinator(numbers.Split(','));
+
+            var result = new MaxViewModel
+            {
+                numbers = mathinator.nums,
+                max = mathinator.Max()
+            };
+
+            return View(result);
+        }
+
         [HttpGet]
         public ActionResult Sum()
         {
-            /*if (model != null)
-                model.SetSum();*/
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Sum(SumPostModel model)
+        public ActionResult Sum(string numbers)
         {
-            var responseModel = new SumViewModel { number1 = model.number1, number2 = model.number2 };
+            var mathinator = new Mathinator(numbers.Split(','));
 
-            responseModel.SetSum();
-            return View(responseModel);
+            var result = new SumViewModel
+            {
+                numbers = mathinator.nums,
+                sum = mathinator.Sum()
+            };
+
+            return View(result);
         }
 
         [HttpGet]
-        public ActionResult MaxOfThree()
+        public ActionResult Multiply()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult MaxOfThree(MaxPostModel model)
+        public ActionResult Multiply(string numbers)
         {
-            var maxThreeModel = new MaxViewModel { n1 = model.n1, n2 = model.n2, n3 = model.n3 };
+            var mathinator = new Mathinator(numbers.Split(','));
 
-            maxThreeModel.GetMax();
-            return View(maxThreeModel);
+            var result = new MultiplyViewModel
+            {
+                numbers = mathinator.nums,
+                product = mathinator.Multiply()
+            };
+
+            return View(result);
         }
 
+        [HttpGet]
+        public ActionResult Factorial()
+        {
+            return View();
+        }
+
+        public ActionResult Factorial(int number)
+        {
+            var result = new FactorialViewModel
+            {
+                number = number,
+                factorial = Mathinator.Factorial(number)
+            };
+
+            return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult Palindrome()
+        {
+            return View();
+        }
+
+        public ActionResult Palindrome(string word)
+        {
+            var result = new PalindromeViewModel {
+                word = word, pal = Wordinator.Palindrome(word)
+            };
+
+            return View(result);
+        }
+        
         public ActionResult FizzBuzz()
         {
-            var fizzyBuzz = new FizzBuzzModel { };
-
+            var fizzyBuzz = new FizzBuzzModel { intArray = new int[100], strArray = "" };
             fizzyBuzz.fB();
-
             return View(fizzyBuzz);
         }
 
@@ -65,6 +122,28 @@ namespace CSharpExercises.Controllers
         }
 
         [HttpGet]
+        public ActionResult FindAWord()
+        {
+            return View();
+        }
+        
+        public ActionResult FindAWord(FindAWordPostModel model)
+        {
+            var text = model.text;
+            var word = model.word;
+            var wordinator = new Wordinator(text);
+
+            var result = new FindAWordViewModel
+            {
+                text = text,
+                word = word,
+                totalWord = wordinator.FindAWord(word)
+            };
+
+            return View(result);
+        }
+
+        [HttpGet]
         public ActionResult TotalAlice()
         {
            return View();
@@ -73,13 +152,47 @@ namespace CSharpExercises.Controllers
         public ActionResult TotalAlice(TotalAlicePostModel model)
         {
             var text = model.text;
+            var word = model.findWord;
             var wordinator = new Wordinator(text = model.text);
 
             var result = new TotalAliceViewModel
             {
-                text = text,
-                total = wordinator.TotalAlice()
+                text = text, findWord = word,
+                total = wordinator.TotalAlice(word)
             };
+
+            return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult WordFrequency()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WordFrequency(string text)
+        {
+            var words = new Wordinator(text);
+
+            var modela = new WordFrequencyViewModel
+            {
+                text = text,
+                frequencies = words.WordFrequency()
+            };
+
+            return View(modela);
+        }
+
+        [HttpGet]
+        public ActionResult PerfectNumber()
+        {
+            return View();
+        }
+
+        public ActionResult PerfectNumber(int num)
+        {
+            var result = new PerfectNumberViewModel { perfectNum = num, perfect = Mathinator.PerfectNumber(num)};
 
             return View(result);
         }

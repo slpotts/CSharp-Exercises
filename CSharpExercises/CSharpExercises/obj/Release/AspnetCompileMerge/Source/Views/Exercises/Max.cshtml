@@ -1,0 +1,29 @@
+﻿@model CSharpExercises.Models.MaxViewModel
+
+@{
+    ViewBag.Title = "Max";
+    string viewNumbers = "";
+    int commaRight = 0;
+
+    if (Model != null)
+    {
+        foreach (var number in Model.numbers)
+        {
+            if (commaRight != 0)
+            {
+                viewNumbers += ", ";
+            }
+            viewNumbers += number.ToString();
+            commaRight++;
+        }
+    }
+    
+}
+
+<h2>Max of Five</h2>
+
+<form action="@Url.Action("Max", "Exercises")" method="post">
+    <label>Input an array of numbers: </label><input type="text" name="numbers" value="@if (Model != null) { @viewNumbers }" /><br />
+    <label>Max: </label><input type="number" name="max" value="@if (Model != null) {@Model.max}" disabled /><br />
+    <button type="submit">Get Max</button>
+</form>

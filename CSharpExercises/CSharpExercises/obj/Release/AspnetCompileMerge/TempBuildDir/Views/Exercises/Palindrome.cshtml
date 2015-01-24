@@ -1,0 +1,13 @@
+﻿@model CSharpExercises.Models.PalindromeViewModel
+
+@{
+    ViewBag.Title = "Palindrome";
+}
+
+<h2>Palindrome</h2>
+
+<form action="@Url.Action("Palindrome", "Exercises")" method="post">
+    <label>Input word: </label><input type="text" name="word" value="@if (Model != null) { @Model.word}" /><br />
+    <label>Palindrome: </label><input type="text" name="pal" value="@if (Model != null) {@Model.pal}" disabled /><br />
+    <button type="submit">Is Palindrome?</button>
+</form>

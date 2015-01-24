@@ -1,0 +1,12 @@
+﻿@model CSharpExercises.Models.FizzBuzzModel
+
+@{
+    ViewBag.Title = "FizzBuzz";
+}
+
+<h2>FizzBuzz</h2>
+
+<form action="@Url.Action("FizzBuzz", "Exercises")" method="post">
+    <textarea name="strArray" style="height:300px; width:200px;" disabled>@Model.strArray</textarea>
+</form>
+

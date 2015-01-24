@@ -1,0 +1,14 @@
+﻿@model CSharpExercises.Models.FactorialViewModel
+
+@{
+    ViewBag.Title = "Factorial";
+}
+
+<h2>Factorial</h2>
+
+<form action="@Url.Action("Factorial", "Exercises")" method="post">
+    <label>Input number: </label><input type="number" name="number" value="@if (Model != null) { @Model.number}" /><br />
+    <label>Factorial: </label><input type="number" name="factorial" value="@if (Model != null) {@Model.factorial}" disabled /><br />
+    <button type="submit">Get Factorial</button>
+</form>
+

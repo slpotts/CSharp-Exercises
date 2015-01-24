@@ -1,0 +1,31 @@
+﻿@model CSharpExercises.Models.SumViewModel
+
+@{
+        ViewBag.Title = "Sum";
+        string viewNumbers = "";
+        int commaRight = 0;
+
+        if (Model != null)
+        {
+            foreach (var number in Model.numbers)
+            {
+                if (commaRight != 0)
+                {
+                    viewNumbers += ", ";
+                }
+                viewNumbers += number.ToString();
+                commaRight++;
+            }
+        }
+}
+
+<h2>Sum</h2>
+
+
+
+<form action="@Url.Action("Sum", "Exercises")" method="post">
+    <label>Input array of numbers: </label><input type="text" name="numbers" value="@if (Model != null) { @viewNumbers}" /><br />
+    <label>Sum: </label><input type="number" name="sum" value="@if (Model != null) {@Model.sum}" disabled /><br />
+    <button type="submit">Get Sum</button>
+</form>
+

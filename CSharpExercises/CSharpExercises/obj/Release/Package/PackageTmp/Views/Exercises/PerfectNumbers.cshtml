@@ -1,0 +1,13 @@
+﻿@model CSharpExercises.Models.PerfectNumberViewModel
+
+@{
+    ViewBag.Title = "PerfectNumbers";
+}
+
+<h2>PerfectNumbers</h2>
+
+<form action="@Url.Action("PerfectNumbers", "Exercises")" method="post">
+    <label>Input number: </label><input type="number" name="perfectNum" value="@if (Model != null) { @Model.perfectNum}" /><br />
+    <label>Perfect: </label><input type="text" name="perfect" value="@if (Model != null) {@Model.perfect}" disabled /><br />
+    <button type="submit">Is Perfect?</button>
+</form>

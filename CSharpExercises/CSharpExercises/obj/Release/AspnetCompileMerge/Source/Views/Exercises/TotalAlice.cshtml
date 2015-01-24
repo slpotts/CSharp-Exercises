@@ -1,0 +1,17 @@
+﻿@model CSharpExercises.Models.TotalAliceViewModel
+
+@{
+    ViewBag.Title = "TotalAlice";
+}
+
+<h2>TotalAlice</h2>
+
+<form action="@Url.Action("TotalAlice", "Exercises")" method="post">
+    <input type="text" name="findWord" value="@if (Model != null) {@Model.findWord}" /><br />
+    <input name="text" type="file" /><br />
+    <p>
+        <label>Result: </label><input type="number" name="total" value="@if (Model != null) {@Model.total}" disabled />
+    </p><br />
+    <button type="submit">Count Alice</button>
+</form>
+

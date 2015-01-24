@@ -166,13 +166,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\FactorialViewModel.cs" />
+    <Compile Include="Models\FindAWordViewModel.cs" />
     <Compile Include="Models\FizzBuzzModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LongestWordViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Mathinator.cs" />
     <Compile Include="Models\MaxViewModel.cs" />
+    <Compile Include="Models\MultiplyViewModel.cs" />
+    <Compile Include="Models\PalindromeViewModel.cs" />
+    <Compile Include="Models\PerfectNumberViewModel.cs" />
     <Compile Include="Models\SumViewModel.cs" />
     <Compile Include="Models\TotalAliceViewModel.cs" />
+    <Compile Include="Models\WordFrequencyViewModel.cs" />
     <Compile Include="Models\Wordinator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -185,6 +192,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\FleetingInfinity.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -235,10 +243,16 @@
     <Content Include="Views\Home\CSharpExercises.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Exercises\Sum.cshtml" />
-    <Content Include="Views\Exercises\MaxOfThree.cshtml" />
+    <Content Include="Views\Exercises\Max.cshtml" />
     <Content Include="Views\Exercises\FindLongestWord.cshtml" />
-    <Content Include="Views\Exercises\TotalAlice.cshtml" />
     <Content Include="Views\Exercises\FizzBuzz.cshtml" />
+    <Content Include="Views\Exercises\WordFrequency.cshtml" />
+    <Content Include="Views\Exercises\Multiply.cshtml" />
+    <Content Include="Views\Exercises\Factorial.cshtml" />
+    <Content Include="Views\Exercises\Palindrome.cshtml" />
+    <Content Include="Views\Exercises\TotalAlice.cshtml" />
+    <Content Include="Views\Exercises\FindAWord.cshtml" />
+    <Content Include="Views\Exercises\PerfectNumbers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

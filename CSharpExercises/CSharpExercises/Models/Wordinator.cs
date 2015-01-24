@@ -22,6 +22,8 @@ namespace CSharpExercises.Models
             var tempText = text.Replace('\n', ' ');
             tempText = tempText.Replace('.', ' ');
             words = tempText.Split(' ');
+
+            words = words.Where(m => m != " " && m != "").ToArray();
         }
 
         public string findLongestWord()
@@ -54,24 +56,65 @@ namespace CSharpExercises.Models
             return longWordsArray;
         }
 
-        public string wordFreq()
-        {
-            return text;
-        }
-
-        public int TotalAlice()
+        public int TotalAlice(string word)
         {
             int numAlice = 0;
 
-            foreach (var word in words)
+            foreach (var aword in words)
             {
-                if (word == "Alice" || word == "alice")
+                if (aword.ToLower() == word.ToLower())
                 {
                     numAlice++;
                 }
             }
 
             return numAlice;
+        }
+
+        public int FindAWord(string word)
+        {
+            int numWord = 0;
+
+            foreach (var aword in words)
+            {
+                if (aword.ToLower() == word.ToLower())
+                {
+                    numWord++;
+                }
+            }
+
+            return numWord;
+        }
+
+        public Dictionary<string, int> WordFrequency()
+        {
+            var frequencies = new Dictionary<string, int>();
+
+            foreach (var word in words)
+            {
+                if (frequencies.Keys.Contains(word))
+                    frequencies[word]++;
+                else
+                    frequencies[word] = 1;
+
+            }
+
+
+            return frequencies;
+        }
+
+        public static bool Palindrome(string word)
+        {
+            string testWord = word.ToLower();
+            char[] test = testWord.ToCharArray();
+            Array.Reverse(test);
+            testWord = new string(test);
+            if (testWord == word.ToLower())
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

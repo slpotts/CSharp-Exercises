@@ -1,0 +1,13 @@
+﻿@model CSharpExercises.Models.WordFrequencyViewModel
+
+@{
+    ViewBag.Title = "WordFrequency";
+}
+
+<h2>WordFrequency</h2>
+<h5>Enter some text:</h5>
+<form action="@Url.Action("WordFrequency", "Exercises")" method="post">
+    <textarea name="text" style="height:300px; width:200px" value="@if (Model != null) { @Model.text}"></textarea><br /><br />
+    <p></p><br />
+    <button type="submit">Word Frequency</button>
+</form>

@@ -7,14 +7,13 @@ namespace CSharpExercises.Models
 {
     public class FizzBuzzModel
     {
-        public int[] intArray;
-        public string[] strArray;
-        public int passThrough;
+        public int[] intArray = new int[100];
+        public string strArray = "";
 
         public void fB() {
-            for (int i = 1; i <= 100; i++)
+            for (int i = 0; i < 100; i++)
             {
-                intArray[i - 1] = i;
+                intArray[i] = i+1;
             }
 
             foreach (var number in intArray)
@@ -22,15 +21,14 @@ namespace CSharpExercises.Models
                 if (number % 3 == 0)
                 {
                     if (number % 5 == 0)
-                        strArray[passThrough] = "FizzBuzz";
+                        strArray += "FizzBuzz ";
                     else
-                        strArray[passThrough] = "Fizz";
+                        strArray += "Fizz ";
                 }
                 else if (number % 5 == 0)
-                    strArray[passThrough] = "Buzz";
+                    strArray += "Buzz ";
                 else
-                    strArray[passThrough] = number.ToString();
-                passThrough++;
+                    strArray+= number.ToString() + " ";
             }
         }
 

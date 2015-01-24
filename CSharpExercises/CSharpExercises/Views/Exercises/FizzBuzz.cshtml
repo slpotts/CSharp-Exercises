@@ -6,9 +6,7 @@
 
 <h2>FizzBuzz</h2>
 
-<h5>Show FizzBuzz:</h5>
 <form action="@Url.Action("FizzBuzz", "Exercises")" method="post">
-    <button type="submit">FizzBuzz</button>
-    <input type="text" name="strArray" value="" disabled/>
+    <textarea name="strArray" style="height:300px; width:200px;" disabled>@Model.strArray</textarea>
 </form>
 

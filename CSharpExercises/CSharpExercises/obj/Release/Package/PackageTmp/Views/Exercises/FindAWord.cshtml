@@ -1,0 +1,17 @@
+﻿@model CSharpExercises.Models.FindAWordViewModel
+
+@{
+    ViewBag.Title = "FindAWord";
+}
+
+<h2>FindWord</h2>
+
+<form action="@Url.Action("FindAWord", "Exercises")" method="post">
+
+    <input name="text" type="file" /><br />
+    <p>
+        <label>Result: </label><input type="number" name="total" value="@if (Model != null) {@Model.totalWord}" disabled />
+    </p><br />
+    <button type="submit">Count Word</button>
+</form>
+

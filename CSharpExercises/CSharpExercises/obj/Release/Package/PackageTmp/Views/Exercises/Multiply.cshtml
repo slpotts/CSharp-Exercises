@@ -1,0 +1,28 @@
+﻿@model CSharpExercises.Models.MultiplyViewModel
+
+@{
+    ViewBag.Title = "Multiply";
+    string viewNumbers = "";
+    int commaRight = 0;
+
+    if (Model != null)
+    {
+        foreach (var number in Model.numbers)
+        {
+            if (commaRight != 0)
+            {
+                viewNumbers += ", ";
+            }
+            viewNumbers += number.ToString();
+            commaRight++;
+        }
+    }
+}
+
+<h2>Multiply</h2>
+
+<form action="@Url.Action("Multiply", "Exercises")" method="post">
+    <label>Input array of numbers: </label><input type="text" name="numbers" value="@if (Model != null) { @viewNumbers}" /><br />
+    <label>Product: </label><input type="number" name="product" value="@if (Model != null) {@Model.product}" disabled /><br />
+    <button type="submit">Get Product</button>
+</form>
