@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
 
 namespace CSharpExercises.Models
 {
@@ -69,21 +70,6 @@ namespace CSharpExercises.Models
             }
 
             return numAlice;
-        }
-
-        public int FindAWord(string word)
-        {
-            int numWord = 0;
-
-            foreach (var aword in words)
-            {
-                if (aword.ToLower() == word.ToLower())
-                {
-                    numWord++;
-                }
-            }
-
-            return numWord;
         }
 
         public Dictionary<string, int> WordFrequency()

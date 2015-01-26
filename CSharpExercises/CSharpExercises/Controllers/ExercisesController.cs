@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace CSharpExercises.Controllers
 {
@@ -122,28 +123,6 @@ namespace CSharpExercises.Controllers
         }
 
         [HttpGet]
-        public ActionResult FindAWord()
-        {
-            return View();
-        }
-        
-        public ActionResult FindAWord(FindAWordPostModel model)
-        {
-            var text = model.text;
-            var word = model.word;
-            var wordinator = new Wordinator(text);
-
-            var result = new FindAWordViewModel
-            {
-                text = text,
-                word = word,
-                totalWord = wordinator.FindAWord(word)
-            };
-
-            return View(result);
-        }
-
-        [HttpGet]
         public ActionResult TotalAlice()
         {
            return View();
@@ -151,9 +130,10 @@ namespace CSharpExercises.Controllers
 
         public ActionResult TotalAlice(TotalAlicePostModel model)
         {
-            var text = model.text;
+            StreamReader stream = new StreamReader(model.fileUpload.InputStream);
+            string text = stream.ReadToEnd();
             var word = model.findWord;
-            var wordinator = new Wordinator(text = model.text);
+            var wordinator = new Wordinator(text);
 
             var result = new TotalAliceViewModel
             {
@@ -185,15 +165,40 @@ namespace CSharpExercises.Controllers
         }
 
         [HttpGet]
-        public ActionResult PerfectNumber()
+        public ActionResult PerfectNumbers()
         {
             return View();
         }
 
-        public ActionResult PerfectNumber(int num)
+        public ActionResult PerfectNumbers(PerfectNumberPostModel model)
         {
-            var result = new PerfectNumberViewModel { perfectNum = num, perfect = Mathinator.PerfectNumber(num)};
+            int number = model.perfectNum;
+            var result = new PerfectNumberViewModel { perfectNum = number, perfect = Mathinator.PerfectNumber(number), perfectNumbers = Mathinator.AllPerfect()};
 
+            return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult HappyNumbers()
+        {
+            return View();
+        }
+
+        public ActionResult HappyNumbers(HappyNumbersPostModel model)
+        {
+            var result = new HappyNumbersViewModel { happyArray = Mathinator.happyNumbers() };
+            return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult ArmstrongNumbers()
+        {
+            return View();
+        }
+
+        public ActionResult ArmstrongNumbers(ArmstrongNumbersPostModel model)
+        {
+            var result = new ArmstrongNumbersViewModel { armstrongNums = Mathinator.armstrongNumbers() };
             return View(result);
         }
     }

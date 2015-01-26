@@ -9,10 +9,11 @@ namespace CSharpExercises.Models
     {
         public int perfectNum { get; set; }
         public bool perfect { get; set; }
+        public string perfectNumbers { get; set; }
     }
 
     public class PerfectNumberPostModel
     {
-        public int number { get; set; }
+        public int perfectNum { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
 
 namespace CSharpExercises.Models
 {
@@ -14,7 +15,8 @@ namespace CSharpExercises.Models
 
     public class TotalAlicePostModel
     {
-        public string text { get; set; }
-        public string findWord { get; set; }
+        public HttpPostedFileBase fileUpload { get; set; }
+        public string text;
+        public string findWord { get; set; }        
     }
 }

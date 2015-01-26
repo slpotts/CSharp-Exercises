@@ -1,0 +1,13 @@
+﻿@model CSharpExercises.Models.ArmstrongNumbersViewModel
+
+@{
+    ViewBag.Title = "ArmstrongNumbers";
+}
+
+<h2>ArmstrongNumbers</h2>
+
+<form action="@Url.Action("ArmstrongNumbers", "Exercises")" method="post">
+    <p><textarea name="armstrongNums" style="width:300px; height:200px;" disabled>@if (Model != null)
+    { @Model.armstrongNums }</textarea></p>
+    <button type="submit">Show All Three-Digit Armstrong Numbers</button><br /><br />
+</form>

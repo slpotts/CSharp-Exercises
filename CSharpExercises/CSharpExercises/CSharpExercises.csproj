@@ -166,9 +166,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArmstrongNumbersViewModel.cs" />
     <Compile Include="Models\FactorialViewModel.cs" />
-    <Compile Include="Models\FindAWordViewModel.cs" />
     <Compile Include="Models\FizzBuzzModel.cs" />
+    <Compile Include="Models\HappyNumbersViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LongestWordViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -193,6 +194,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\FleetingInfinity.pubxml" />
+    <None Include="Properties\PublishProfiles\pottss - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pottss - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -251,8 +254,9 @@
     <Content Include="Views\Exercises\Factorial.cshtml" />
     <Content Include="Views\Exercises\Palindrome.cshtml" />
     <Content Include="Views\Exercises\TotalAlice.cshtml" />
-    <Content Include="Views\Exercises\FindAWord.cshtml" />
     <Content Include="Views\Exercises\PerfectNumbers.cshtml" />
+    <Content Include="Views\Exercises\HappyNumbers.cshtml" />
+    <Content Include="Views\Exercises\ArmstrongNumbers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -35,7 +35,6 @@ namespace CSharpExercises.Models
                 if (number > maxNum)
                     maxNum = number;
             }
-            
 
             return maxNum;
         }
@@ -79,28 +78,130 @@ namespace CSharpExercises.Models
 
         public static bool PerfectNumber(int num)
         {
-            int[] pArray = new int[0];
-            int arrayLoc = 0;
+            List<int> pArrayL = new List<int>();
 
-            for (int i = 1; i < num; i++) {
-                if (num % i == 0) {
-                    pArray[arrayLoc] = i;
-                    arrayLoc++;
+            for (int i = 1; i < num; i++)
+            {
+                if (num % i == 0) 
+                {
+                    pArrayL.Add(i);
                 }
             }
 
-            var sum = 0;
+            int[] pArray = pArrayL.ToArray();
 
-            for (int b = 0; b < pArray.Length; b++) {
+            int sum = 0;
+
+            for (int b = 0; b < pArray.Length; b++) 
+            {
                 sum += pArray[b];
             }
 
-            if (sum == num) {
+            if (sum == num) 
+            {
                 return true;
             }
-            else {
+            else 
+            {
                 return false;
             }
+        }
+
+        public static string AllPerfect()
+        {
+            List<int> allL = new List<int>();
+
+            for (int i = 1; i <= 10000; i++) 
+            {
+                if (PerfectNumber(i))
+                {
+                    allL.Add(i);
+                }
+            }
+
+            int[] all = allL.ToArray();
+            string perfects = string.Join(", ", all);
+            return perfects;
+        }
+
+        public static int sumPowered(int num, int pow)
+        {
+            int sum = 0;
+            List<int> numsL = new List<int>();
+            while (num > 0)
+            {
+                numsL.Add(num % 10);
+                num = num / 10;
+            }
+            int[] nums = numsL.ToArray();
+            sum = 0;
+            for (int a = 0; a < nums.Length; a ++ )
+            {
+                sum += Convert.ToInt32(Math.Pow(Convert.ToDouble(nums[a]), Convert.ToDouble(pow)));
+            }
+
+            return sum;
+        }
+
+        private static bool isHappy(int number) 
+        {
+            List<int> seen = new List<int>();
+            int contains;
+            do {
+                number = sumPowered(number, 2);
+                contains = 0;
+                if (seen.IndexOf(number) >= 0)
+                    contains = 1;
+                if (contains == 0) {
+
+
+                    if (number == 1)
+                        return true;
+
+                    seen.Add(number);
+                }
+                else {
+                    return false;
+                }
+            }
+            while (number != 1);
+
+            return false;
+        }
+
+        public static string happyNumbers() {
+            List<int> happyArrayL = new List<int>();
+            int hn = 1;
+
+            while (happyArrayL.Count() < 5) {
+                if (isHappy(hn))
+                    happyArrayL.Add(hn);
+                hn++;
+            }
+
+            int[] happyArray = happyArrayL.ToArray();
+            string happyNums = string.Join(", ", happyArray);
+
+            return happyNums;
+        }
+
+        public static string armstrongNumbers()
+        {
+            List<int> armNumL = new List<int>();
+            int armNumber = 100;
+            int armTotal;
+
+            while (armNumber < 1000) {
+                armTotal = sumPowered(armNumber, 3);
+                if (armTotal == armNumber) {
+                    armNumL.Add(armNumber);
+                }
+                armNumber++;
+            }
+
+            int[] armNums = armNumL.ToArray();
+            string armNum = string.Join(", ", armNums);
+            return armNum;
         }
     }
 }
