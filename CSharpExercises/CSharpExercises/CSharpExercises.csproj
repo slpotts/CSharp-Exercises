@@ -168,6 +168,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ArmstrongNumbersViewModel.cs" />
     <Compile Include="Models\FactorialViewModel.cs" />
+    <Compile Include="Models\FilterLongWordsViewModel.cs" />
     <Compile Include="Models\FizzBuzzModel.cs" />
     <Compile Include="Models\HappyNumbersViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -257,6 +258,7 @@
     <Content Include="Views\Exercises\PerfectNumbers.cshtml" />
     <Content Include="Views\Exercises\HappyNumbers.cshtml" />
     <Content Include="Views\Exercises\ArmstrongNumbers.cshtml" />
+    <Content Include="Views\Exercises\FilterLongWords.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

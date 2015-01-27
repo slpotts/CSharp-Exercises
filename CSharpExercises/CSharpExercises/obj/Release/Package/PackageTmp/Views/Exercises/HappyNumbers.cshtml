@@ -1,0 +1,12 @@
+﻿@model CSharpExercises.Models.HappyNumbersViewModel
+
+@{
+    ViewBag.Title = "HappyNumbers";
+}
+
+<h2>HappyNumbers</h2>
+
+<form action="@Url.Action("HappyNumbers", "Exercises")" method="post">
+    <p><textarea name="happyArray" style="width:300px; height:200px;" disabled>@if (Model != null) { @Model.happyArray }</textarea></p>
+    <button type="submit">Show First Five Happy Numbers</button><br /><br />
+</form>

@@ -41,20 +41,22 @@ namespace CSharpExercises.Models
             return longestWord;
         }
 
-        public string[] filterLongWords(int i)
+        public string filterLongWords(int i)
         {
             List<string> longWords = new List<string>();
             string[] longWordsArray;
 
             foreach (var word in words) {
                 if (word.Length >= i) {
-                    longWords.Add(word);
+                    if (!longWords.Contains(word))
+                        longWords.Add(word);
                 }
             }
 
             longWordsArray = longWords.ToArray();
+            string allWords = string.Join(", ", longWordsArray);
 
-            return longWordsArray;
+            return allWords;
         }
 
         public int TotalAlice(string word)
@@ -82,9 +84,7 @@ namespace CSharpExercises.Models
                     frequencies[word]++;
                 else
                     frequencies[word] = 1;
-
             }
-
 
             return frequencies;
         }

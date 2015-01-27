@@ -9,5 +9,7 @@
 <form action="@Url.Action("PerfectNumbers", "Exercises")" method="post">
     <label>Input number: </label><input type="number" name="perfectNum" value="@if (Model != null) { @Model.perfectNum}" /><br />
     <label>Perfect: </label><input type="text" name="perfect" value="@if (Model != null) {@Model.perfect}" disabled /><br />
-    <button type="submit">Is Perfect?</button>
+    <button type="submit">Is Perfect?</button><br /><br />
+    <label>All Perfect from 1 - 10000:</label><br />
+    <p><textarea name="perfectNumbers" style="width:300px; height:200px;" disabled>@if (Model != null) { @Model.perfectNumbers }</textarea></p>
 </form>

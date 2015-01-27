@@ -11,3 +11,19 @@
     <p></p><br />
     <button type="submit">Word Frequency</button>
 </form>
+
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-6">Word</div>
+            <div class="col-md-6">Frequency</div>
+            @foreach (var entry in Model.frequencies.OrderByDescending(s => s.Value))
+            {
+                <div class="col-md-6">@entry.Key</div>
+                <div class="col-md-6">@entry.Value</div>
+            }
+        </div>
+    </div>
+
+}

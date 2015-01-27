@@ -108,15 +108,44 @@ namespace CSharpExercises.Controllers
             return View(fizzyBuzz);
         }
 
+        [HttpGet]
         public ActionResult FindLongestWord()
         {
-            var text = "The cat in the hat was fat. He loves lamp.";
+            return View();
+        }
+
+        public ActionResult FindLongestWord(LongestWordPostModel model)
+        {
+            StreamReader stream = new StreamReader(model.fileUpload.InputStream);
+            string text = stream.ReadToEnd();
             var wordinator = new Wordinator(text);
 
             var result = new LongestWordViewModel
             {
                 text = text,
                 longest = wordinator.findLongestWord()
+            };
+
+            return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult FilterLongWords()
+        {
+            return View();
+        }
+
+        public ActionResult FilterLongWords(FilterLongWordsPostModel model)
+        {
+            StreamReader stream = new StreamReader(model.fileUpload.InputStream);
+            string text = stream.ReadToEnd();
+            var wordinator = new Wordinator(text);
+            int len = model.length;
+
+            var result = new FilterLongWordsViewModel
+            {
+                text = text, length = len,
+                longWords = wordinator.filterLongWords(len)
             };
 
             return View(result);

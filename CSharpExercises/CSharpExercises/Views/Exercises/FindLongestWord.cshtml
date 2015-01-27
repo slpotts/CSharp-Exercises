@@ -6,9 +6,11 @@
 
 <h2>Find Longest Word</h2>
 
-<h5>Text:</h5>
-<p>@Model.text</p>
+<form action="@Url.Action("FindLongestWord", "Exercises")" method="post" enctype="multipart/form-data">
+    <input name="fileUpload" type="file" /><br />
+    <button type="submit">Find Longest Word</button>
+    </form>
 
-<h5>Longest Word:</h5>
-<p>@Model.longest</p>
+    <h5>Longest Word:</h5>
+    <p>@if (Model != null) {@Model.longest}</p>
 

@@ -5,14 +5,16 @@ using System.Web;
 
 namespace CSharpExercises.Models
 {
-    public class LongestWordViewModel
+    public class FilterLongWordsViewModel
     {
         public string text { get; set; }
-        public string longest { get; set; }
+        public int length { get; set; }
+        public string longWords { get; set; }
     }
 
-    public class LongestWordPostModel
+    public class FilterLongWordsPostModel
     {
         public HttpPostedFileBase fileUpload { get; set; }
+        public int length { get; set; }
     }
 }

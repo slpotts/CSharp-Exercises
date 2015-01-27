@@ -1,0 +1,18 @@
+﻿@model CSharpExercises.Models.FilterLongWordsViewModel
+
+@{
+    ViewBag.Title = "FilterLongWords";
+}
+
+<h2>FilterLongWords</h2>
+
+<form action="@Url.Action("FilterLongWords", "Exercises")" method="post" enctype="multipart/form-data">
+    <label>Filter words longer than: </label><input name="length" type="number" /><br /><br />
+    <input name="fileUpload" type="file" /><br />
+    <button type="submit">Filter Long Words</button>
+</form>
+
+<h5>Longest Words:</h5>
+<p>@if (Model != null)
+{@Model.longWords}</p>
+
